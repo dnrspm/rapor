@@ -1,0 +1,63 @@
+.card {
+  position: relative;
+  width: min(1216px, calc(100% - 48px));
+  height: 224px;
+  margin: 44px auto 0;
+  overflow: hidden;
+  background: var(--surface-subdued);
+  border-radius: 8px;
+}
+
+.illustration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 390px;
+  height: 224px;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+}
+
+.layer img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+.title {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dialogue {
+  position: absolute;
+  top: 84px;
+  left: 32px;
+  width: 770px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.bubble {
+  width: fit-content;
+  white-space: nowrap;
+  padding: 12px 32px 12px 24px;
+  background: var(--surface-default);
+  border-radius: 40px 0 40px 40px;
+  filter: var(--shadow-bubble);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 24px;
+}

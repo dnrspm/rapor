@@ -1,0 +1,48 @@
+.bar {
+  background: var(--surface-default);
+  border-bottom: 1px solid var(--border-subdued);
+}
+
+.inner {
+  width: min(1216px, calc(100% - 48px));
+  margin-inline: auto;
+  padding-top: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.label {
+  display: block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-default);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.tab:hover .label {
+  background: var(--surface-subdued);
+}
+
+/* 4px rounded-top bar, identical to the Figma "Active" shape (#2C70E6) */
+.indicator {
+  display: block;
+  height: 4px;
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+}
+
+.active {
+  background: #2c70e6;
+}

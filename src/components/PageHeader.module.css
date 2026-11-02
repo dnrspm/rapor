@@ -1,0 +1,66 @@
+.header {
+  background: var(--surface-dark-blue);
+  color: var(--text-inverse);
+}
+
+.inner {
+  width: min(1216px, calc(100% - 48px));
+  margin-inline: auto;
+  padding: 24px 0 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.crumb {
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-inverse);
+  white-space: nowrap;
+}
+
+.current {
+  color: var(--text-inverse-subdued);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 906px;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eyebrow {
+  font-size: 19px;
+  line-height: 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 24px;
+}

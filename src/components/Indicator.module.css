@@ -1,0 +1,78 @@
+/* Status pill ("Assets / Label Indicator") */
+.label {
+  display: inline-flex;
+  justify-content: center;
+  padding: 8px 24px;
+  border-radius: 34px;
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.fill {
+  display: flex;
+  width: 100%;
+}
+
+.kurang {
+  background: var(--status-kurang);
+}
+
+.sedang {
+  background: var(--status-sedang);
+}
+
+.baik {
+  background: var(--status-baik);
+}
+
+/* Trend ("Assets / Capaian Indicator") */
+.trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.14px;
+  white-space: nowrap;
+}
+
+.trend strong {
+  font-weight: 700;
+}
+
+.trendIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* Tooltip trigger button */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: var(--surface-default);
+  border: 1px solid var(--border-subdued);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0.13px;
+  white-space: nowrap;
+  color: var(--text-default);
+}
+
+.trigger:hover {
+  background: var(--surface-subdued);
+}
+
+.tight {
+  padding-left: 8px;
+}

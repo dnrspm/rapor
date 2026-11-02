@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.button {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+}
+
+.image {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.button:hover .image {
+  opacity: 0.5;
+}

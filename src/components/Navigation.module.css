@@ -1,0 +1,101 @@
+.nav {
+  height: 64px;
+  background: var(--surface-default);
+  border-bottom: 1px solid var(--border-subdued);
+}
+
+.inner {
+  width: min(1216px, calc(100% - 48px));
+  height: 64px;
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  height: 44px;
+}
+
+.kemendikbud {
+  position: relative;
+  display: block;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Crop identical to the Figma "logo kemendikbud 1" layer (42.927 x 44, centered +0.46px) */
+.kemendikbudImage {
+  position: absolute;
+  top: -2.44%;
+  left: -5%;
+  width: 110%;
+  height: 107.32%;
+  max-width: none;
+}
+
+.menu {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 64px;
+}
+
+/* Link = label + 4px reserved for the (hidden) active indicator, as in the design */
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+}
+
+.linkLabel {
+  display: block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-default);
+  white-space: nowrap;
+}
+
+.link:hover .linkLabel {
+  background: var(--surface-subdued);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 64px;
+  padding: 0 0 0 12px;
+  background: transparent;
+  border: 0;
+}
+
+.avatar {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.initials {
+  position: absolute;
+  inset: 16.67%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  color: var(--text-subdued);
+}
