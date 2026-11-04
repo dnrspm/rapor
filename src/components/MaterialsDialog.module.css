@@ -76,12 +76,6 @@
   font-weight: 600;
 }
 
-.subtitle {
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--text-subdued);
-}
-
 .close {
   display: flex;
   align-items: center;
@@ -103,14 +97,29 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   padding: 12px;
   overflow-y: auto;
 }
 
+.list li {
+  position: relative;
+}
+
+/* Divider starts where the text begins: item padding (12) + icon (24) + gap (16) */
+.list li + li::before {
+  content: "";
+  position: absolute;
+  top: -4px; /* centered in the 8px list gap */
+  left: 52px;
+  right: 0;
+  height: 0.5px;
+  background: var(--border-disabled);
+}
+
 .item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   padding: 12px;
   border: 1px solid transparent;
@@ -127,29 +136,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-}
-
-.video {
-  color: #b42318;
-  background: #fef3f2;
-}
-
-.artikel {
+  margin-top: 2px; /* optical alignment with the title text */
   color: var(--base-primary);
-  background: #eff4ff;
-}
-
-.dokumen {
-  color: #b57f21;
-  background: var(--surface-warning-subtle);
-}
-
-.platform {
-  color: var(--base-success);
-  background: #ecf7f1;
 }
 
 .itemCopy {
@@ -179,7 +167,7 @@
   padding: 0 8px;
   background: var(--surface-subdued);
   border: 1px solid var(--border-disabled);
-  border-radius: 4px;
+  border-radius: 999px;
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
@@ -188,6 +176,7 @@
 
 .external {
   display: flex;
+  align-self: center;
   flex-shrink: 0;
   color: var(--text-disabled);
 }
