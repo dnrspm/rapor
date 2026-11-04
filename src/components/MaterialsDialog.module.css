@@ -107,6 +107,10 @@
 }
 
 /* Divider starts where the text begins: item padding (12) + icon (24) + gap (16) */
+.list[data-variant="plain"] li + li::before {
+  left: 12px;
+}
+
 .list li + li::before {
   content: "";
   position: absolute;
@@ -119,7 +123,7 @@
 
 .item {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* number lines up with the first line of the title */
   gap: 16px;
   padding: 12px;
   border: 1px solid transparent;
@@ -136,8 +140,25 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px; /* optical alignment with the title text */
+  width: 24px;
+  height: 24px;
   color: var(--base-primary);
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px; /* keeps the divider offset (52px) aligned with the text */
+  height: 24px;
+  border-radius: 999px;
+  background: var(--surface-subdued);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-default);
 }
 
 .itemCopy {
@@ -154,26 +175,6 @@
   line-height: 24px;
 }
 
-.itemMeta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--text-subdued);
-}
-
-.tag {
-  padding: 0 8px;
-  background: var(--surface-subdued);
-  border: 1px solid var(--border-disabled);
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  color: var(--text-default);
-}
-
 .external {
   display: flex;
   align-self: center;
@@ -183,4 +184,37 @@
 
 .item:hover .external {
   color: var(--base-primary);
+}
+
+/* Pinned to the viewport corner. It stays inside the <dialog> because a modal
+   dialog makes everything outside it inert. */
+.switcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--surface-default);
+  border: 1px solid var(--border-disabled);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
+}
+
+.switcherButton {
+  padding: 4px 12px;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-subdued);
+  cursor: pointer;
+}
+
+.switcherButton[aria-pressed="true"] {
+  background: var(--surface-subdued);
+  color: var(--text-default);
 }

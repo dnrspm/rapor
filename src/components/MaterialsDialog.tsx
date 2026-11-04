@@ -1,30 +1,21 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
-import type { Material, MaterialType } from "@/lib/content";
+import { useEffect, useId, useRef, useState } from "react";
+import type { Material } from "@/lib/content";
 import {
   ArrowTopRightOnSquareIcon,
-  ComputerDesktopIcon,
-  DocumentTextIcon,
-  BookOpenIcon,
-  PlayCircleIcon,
+  LinkIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import styles from "./MaterialsDialog.module.css";
 
-const typeMeta: Record<MaterialType, { label: string }> = {
-  video: { label: "Video" },
-  artikel: { label: "Artikel" },
-  dokumen: { label: "Dokumen" },
-  platform: { label: "Platform" },
-};
+type Variant = "plain" | "number" | "link";
 
-const typeIcons: Record<MaterialType, typeof PlayCircleIcon> = {
-  video: PlayCircleIcon,
-  artikel: BookOpenIcon,
-  dokumen: DocumentTextIcon,
-  platform: ComputerDesktopIcon,
-};
+const variants: { value: Variant; label: string }[] = [
+  { value: "plain", label: "Polos" },
+  { value: "number", label: "Nomor" },
+  { value: "link", label: "Link" },
+];
 
 export function MaterialsDialog({
   open,
@@ -39,6 +30,7 @@ export function MaterialsDialog({
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
+  const [variant, setVariant] = useState<Variant>("number");
 
   useEffect(() => {
     const dialog = ref.current;
@@ -75,9 +67,8 @@ export function MaterialsDialog({
         </button>
       </div>
 
-      <ul className={styles.list}>
-        {materials.map((material) => {
-          const TypeIcon = typeIcons[material.type];
+      <ul className={styles.list} data-variant={variant}>
+        {materials.map((material, index) => {
           return (
             <li key={material.url + material.title}>
               <a
@@ -86,16 +77,18 @@ export function MaterialsDialog({
                 rel="noopener noreferrer"
                 className={styles.item}
               >
-                <span className={styles.icon}>
-                  <TypeIcon width={24} height={24} aria-hidden="true" />
-                </span>
+                {variant === "number" && (
+                  <span className={styles.number} aria-hidden="true">
+                    {index + 1}
+                  </span>
+                )}
+                {variant === "link" && (
+                  <span className={styles.icon} aria-hidden="true">
+                    <LinkIcon width={24} height={24} />
+                  </span>
+                )}
                 <span className={styles.itemCopy}>
                   <span className={styles.itemTitle}>{material.title}</span>
-                  <span className={styles.itemMeta}>
-                    <span className={styles.tag}>
-                      {typeMeta[material.type].label}
-                    </span>
-                  </span>
                 </span>
                 <span className={styles.external}>
                   <ArrowTopRightOnSquareIcon
@@ -109,6 +102,20 @@ export function MaterialsDialog({
           );
         })}
       </ul>
+
+      <div role="group" aria-label="Gaya daftar" className={styles.switcher}>
+        {variants.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            className={styles.switcherButton}
+            aria-pressed={variant === option.value}
+            onClick={() => setVariant(option.value)}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
     </dialog>
   );
 }
